@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
+import Dashboard from './pages/dashboard';
+import TaskForm from './pages/task_form';
+import AddAppointmentForm from './pages/add_appointment';
+import PreferencesPage from './pages/prefernces';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route exact path="/" element={<Dashboard />} />
+          <Route exact path="/add_task" element={<TaskForm />} />
+          <Route exact path="/add_appointment" element={<AddAppointmentForm />} />
+          <Route exact path="/prefernces" element={<PreferencesPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
